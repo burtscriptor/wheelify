@@ -3,13 +3,41 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <a href="/users">Dashboard</a>
-    <a href="/venues">Venues and Reviews</a>
-    <a href="/venues/new">Add Venue</a>
-    
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+      <div class="header">
+        <h1><%= title %></h1>
+        <p>Welcome to <%= title %></p>
+      </div>
+      
+      <div class="row">
+        <div class="col-3 menu">
+          <ul>
+          <li><a href="/users">Log in or Join the team</a></li>
+          <li><a href="/venues">Venues and Reviews</a></li>
+          <li><a href="/venues/new">Add Venue</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6">
+          <h1>About us</h1>
+          <p>Promiting venues adopted for those that require mobiity assistance.<br>
+          Add a venue and tell us how you found its accesbility.</p>
+        </div>
+      
+        <div class="col-3 right">
+          <div class="aside">
+            <h2>FAQ</h2>
+            <h2>What do we mean by mobility assistance?</h2>
+            <p>Generally speaking..</p>
+            <h2>Why this is important?</h2>
+            <p>Creating an inclusive society is not only good for individuals well being but also for econimic growthh and resilence</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <p>Contact us: inclusiceDine@gmail.com</p>
+      </div>
+      
   </body>
 </html>

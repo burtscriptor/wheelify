@@ -7,4 +7,7 @@ router.get('/', function(req, res, next) {
   //optionally res.redirect('/mainpage');
 });
 
+router.get('/about',function(request, respond){
+  respond.render('about', { title: 'About' })
+})
 module.exports = router;
