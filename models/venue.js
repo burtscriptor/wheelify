@@ -18,7 +18,9 @@ const Schema = mongoose.Schema;
 
 const venueSchema = new Schema ({
     name: {type: String, required: true},
-    address: {type: String}
+    address: {type: String},
+   // image: {type: String},
+   // cloudinary_id: {type: String},
 });
 
 module.exports = mongoose.model('Venue', venueSchema);

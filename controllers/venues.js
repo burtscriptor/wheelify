@@ -1,4 +1,5 @@
 const Venue = require('../models/venue');
+//const cloudinary = require('../utilies/cloudinary');
 
 const index = async (request, respond) => {
     const venues = await Venue.find({});
@@ -20,6 +21,13 @@ const newVenue = (request, respond) => {
 const create = async(request, respond) => {
     console.log(request.body);
     try { 
+        // const result = await cloudinary.upload(request.file.path);
+        // console.log(result);
+        // const venue = await new Venue({
+        //     ...request.body,
+        //     image: result.secure_url,
+        //     cloudinary_id: result.public_id
+        //})
         const venue = await Venue.create(request.body);
         respond.redirect(`/venues`);
     } catch {
