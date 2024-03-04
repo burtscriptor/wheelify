@@ -13,16 +13,39 @@
       <div class="row">
         <div class="col-3 menu">
           <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/users">Log in or Join the team</a></li>
-          <li><a href="/venues/new">Add Venue</a></li>
-          </ul>
+          <a href="/"><li class="first">Home</li></a>
+          <% if (user) { %>
+          <a href="/venues/new"><li class="second">Add Venue</li></a>
+          <% } else{ %>
+          <a href="/auth/google"><li>Log in or Join the team</li></a>
+          <% } %>
+        </ul>
         </div>
       
         <div class="col-6">
           <h1>Venues</h1>
-          <p>List of ALL venues with a link to reviews at the end of each one</p>
-        </div>
+          <% if(venues.length) { %>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Address</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% venues.forEach(function(v) { %>
+                          <tr></tr>
+                              <td><%= v.name %></td> 
+                              <td><%= v.address %></td>
+                              <td><a href="/venues/<%= v._id %>">Details</a></td>
+                              <td>Edit</td><!--<img src="/images/edit.png">-->
+                          </tr>
+                      <% }) %>
+                  </tbody>
+              </table>
+          <% } %>
+      </div>
+      
       
         <div class="col-3 right">
           <div class="aside">

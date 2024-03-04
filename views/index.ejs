@@ -13,9 +13,17 @@
       <div class="row">
         <div class="col-3 menu">
           <ul>
-          <li><a href="/users">Log in or Join the team</a></li>
-          <li><a href="/venues">Venues and Reviews</a></li>
-          <li><a href="/venues/new">Add Venue</a></li>
+         
+          <% if (user) { %>
+          <a href="/users/dashboard"><li>Dashboard</li></a>
+          <a href="/venues/new"><li>Add Venue</li></a>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
+          <a href="/logout"><li>Log Out</li></a>
+          <% } else { %>
+          <a href="/auth/google"><li class="first">Log in or Join the team</li></a>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
+            <% } %>
+            
           </ul>
         </div>
       
@@ -31,12 +39,12 @@
             <h2>What do we mean by mobility assistance?</h2>
             <p>Generally speaking..</p>
             <h2>Why this is important?</h2>
-            <p>Creating an inclusive society is not only good for individuals well being but also for econimic growthh and resilence</p>
+            <p>Creating an inclusive society is not only good for everyones well-being, but also for econimic growthh and resilence.</p>
           </div>
         </div>
       </div>
       <div class="footer">
-        <p>Contact us: inclusiceDine@gmail.com</p>
+        <p>Contact us: inclusiveDine@gmail.com</p>
       </div>
       
   </body>

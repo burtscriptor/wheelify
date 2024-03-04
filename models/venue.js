@@ -1,5 +1,5 @@
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // const reviewSchema = New Schema ({
 //     reviewID: 
@@ -16,12 +16,9 @@
 
 // })
 
-// const venueSchema = new Schema ({
-//     name: {type: String, required: true},
-//     address: {String, required: false},
-//     usersRecommending: [ ],
-//     comments: [],
+const venueSchema = new Schema ({
+    name: {type: String, required: true},
+    address: {type: String}
+});
 
-
-
-// })
+module.exports = mongoose.model('Venue', venueSchema);
