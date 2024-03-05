@@ -9,7 +9,7 @@ const index = async (request, respond) => {
 
 const show = async (request, respond) => {
    
-        const venue = await Venue.findById(request.params.id);
+    const venue = await Venue.findById(request.params.id);
     respond.render('venues/show', { title:`${venue.name}`, venue: venue});
     console.log("this is", request.params.id);
 }
@@ -35,6 +35,7 @@ const create = async(request, respond) => {
         respond.redirect('venues/new', { errorMsg: err.message });
     }
 }
+
 module.exports = {
     index,
     new: newVenue,

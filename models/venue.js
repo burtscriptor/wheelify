@@ -1,26 +1,32 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// const reviewSchema = New Schema ({
-//     reviewID: 
-//     userID:
-//     wheelChairAdpoted: {type: Boolean, required: true},
-//     wheelChairFriendly: {type: Boolean, required: false},
-//     designatedDisableParking: {type: Boolean, required: false},
-//     easyParkingNearby: {type: Boolean, required: false},
-//     hillsOnApproach: {type: Boolean, required: false},
-//     unevenPavementOnApproach: {type: Boolean, required: false},
-//     vegenFriendly: {type: Boolean, required: false},
-//     glutenFree: {type: Boolean, required: false},
-//     comment: {String},
-
-// })
+const reviewSchema = new Schema ({
+   
+    venueName: {String},
+    wheelChairAdpoted: {type: Boolean},
+    wheelChairFriendly: {type: Boolean},
+    designatedDisableParking: {type: Boolean},
+    easyParkingNearby: {type: Boolean},
+    hillsOnApproach: {type: Boolean},
+    unevenPavementOnApproach: {type: Boolean},
+    vegenFriendly: {type: Boolean},
+    glutenFree: {type: Boolean},
+    comment: {String},
+    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+}, {
+        timestamp: true
+    });
 
 const venueSchema = new Schema ({
     name: {type: String, required: true},
     address: {type: String},
+    reviews: [reviewSchema],
+    }, {
+    timestamps: true
+    });
+
    // image: {type: String},
    // cloudinary_id: {type: String},
-});
 
 module.exports = mongoose.model('Venue', venueSchema);

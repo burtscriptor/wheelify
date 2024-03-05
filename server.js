@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var passport =  require('passport');
 var methodOverride = require('method-override');
+var mongoStore = require('connect-mongo');
 
 require('dotenv').config();
 require('./config/database');
@@ -14,6 +15,7 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var venuesRouter = require('./routes/venues');
+var reviewsRouter = require('./routes/reviews');
 
 var app = express();
 
@@ -29,7 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: mongoStore.create({
+    mongoUrl: process.env.DATABASE_URL
+  })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,6 +48,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/venues', venuesRouter);
 app.use('/users', usersRouter);
+app.use('/reviews', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

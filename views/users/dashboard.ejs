@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
       <div class="header">
-        <h1><%= title %></h1>
+        <h1 class="title"><%= title %></h1>
         <p>Welcome to <%= title %></p>
       </div>
       
@@ -21,8 +20,47 @@
         </div>
       
         <div class="col-6">
-          <h1>Your venues</h1>
-          <p>List of venues user has reviewed</p>
+          <h1>Your Reviews</h1>
+          <% if (reviewShow.length) { %>
+            <table class="table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Venue name</th>
+                <th>Wheelchair adpoted?</th>
+                <th>Wheelchair friendly?</th>
+                <th>Designated disable parking?</th>
+                <th>Easy parking nearby? </th>
+                <th>Hills on approach?</th>
+                <th>Uneven pavement on approach?</th>
+                <th>Vegan friendly options?</th>
+                <th>GlutenFree options?</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <% reviewShow.forEach(function(r) { %>
+            <tr>
+              <td class="review-user"><img alt="avatar" src="<% r.userAvatar %>" referrerpolicy="no-referrer"><% r.userName %></td>
+              <td><%= r.venueName %></td>
+              <td><%= r.wheelChairAdpoted %></td>
+              <td><%= r.wheelChairFriendly %></td>
+              <td><%= r.designatedDisableParking %></td>
+              <td><%= r.easyParkingNearby %></td>
+              <td><%= r.hillsOnApproach %></td>
+              <td><%= r.unevenPavementOnApproach %></td>
+              <td><%= r.vegenFriendly %></td>
+              <td><%= r.GlutenFree %></td>
+              <td><%= r.comment %></td>
+              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit" >Delete</button>
+                </form>
+            </tr>
+            
+         <% }) %>
+        <% }; %>
         </div>
       
         <div class="col-3 right">
