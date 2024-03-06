@@ -10,7 +10,9 @@ const index = async (request, respond) => {
 const show = async (request, respond) => {
    
     const venue = await Venue.findById(request.params.id);
-    respond.render('venues/show', { title:`${venue.name}`, venue: venue});
+
+    respond.render('venues/show', { title: 'InclusiveDine', venue: venue});
+    
     console.log("this is", request.params.id);
 }
 
