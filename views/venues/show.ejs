@@ -59,7 +59,31 @@
             <input type="hidden" name="venueName" value="<%= venue.name %>">
             <input type="checkbox" id="wheelChairAdopted" name="wheelChairAdopted" value="yes">
             <label for="wheelChairAdopted">Wheelchair adopted?</label><br>
-            <!-- Add other review input fields here -->
+           
+            <input type="checkbox" id="wheelChairFriendly" name="wheelChairFriendly" value="yes">
+            <label for="wheelChairFriendly">Did you find it wheelchair friendly?</label><br>
+
+            <input type="checkbox" id="designatedDisableParking" name="designatedDisableParking" value="yes">
+            <label for="designatedDisableParking">Was there designated disabled parking nearby?</label><br>
+
+            <input type="checkbox" id="easyParkingNearby" class="addReview" name="easyParkingNearby" value="yes">
+            <label for="easyParkingNearby">Was there easy parking options nearby?</label><br>
+
+            <input type="checkbox" id="hillsOnApproach" class="addReview" name="hillsOnApproach" value="yes">
+            <label for="hillsOnApproach">Were there hills on approach to the venue?</label><br>
+
+            <input type="checkbox" id="unevenPavementOnApproach" class="addReview" name="unevenPavementOnApproach" value="yes">
+            <label for="unevenPavementOnApproach">Uneven pavement on approach?</label><br>
+
+            <input type="checkbox" id="veganFriendly" class="addReview" name="veganFriendly" value="yes">
+            <label for="veganFriendly">Vegan friendly options?</label><br>
+
+            <input type="checkbox" id="glutenFree" class="addReview" name="glutenFree" value="yes">
+            <label for="glutenFree">Gluten free options?</label><br>
+
+            <label for="comment">Share any other feedback?</label><br>
+            <input type="text" id="comment" class="addReview" name="comment">
+
             <button class="addReview" type="submit">Add</button>
           </form>
         </div>

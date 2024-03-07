@@ -4,12 +4,12 @@ async function deleteReview(request, respond) {
   const review = await Venue.findOne({ 'reviews._id': request.params.id, 'reviews.user': request.user._id });
   review.reviews.remove(request.params.id);
   await review.save();
-  respond.redirect(`/venues/${review._id}`);
+  respond.redirect(`/users/dashboard`);
 }
 
 const create = async (request, respond) => {
   const venue = await Venue.findById(request.params.id);
-  console.log("this is request", request.params.id)
+  
   request.body.user = request.user._id;
   request.body.userName = request.user.name;
   request.body.userAvatar = request.user.avatar;
