@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const reviewSchema = new Schema ({
+const reviewSchema = new Schema({
     venueName: { type: String },
     wheelChairAdopted: { type: Boolean },
     wheelChairFriendly: { type: Boolean },
@@ -17,7 +17,6 @@ const reviewSchema = new Schema ({
     timestamps: true
 });
 
-
 const venueSchema = new Schema({
     name: { type: String, required: true },
     foodType: { type: String },
@@ -28,21 +27,19 @@ const venueSchema = new Schema({
     methods: {
         wheelChairAdopted() {
             let wheelChairAdoptedNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.wheelChairAdopted === true) {
                     wheelChairAdoptedNum++;
                 }
             });
-
-            return wheelChairAdoptedNum
-           
+            return wheelChairAdoptedNum;
         },
         totalNumReviews() {
             return this.reviews.length;
         },
         wheelChairFriendly() {
             let wheelChairFriendlyNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.wheelChairFriendly === true) {
                     wheelChairFriendlyNum++;
                 }
@@ -51,7 +48,7 @@ const venueSchema = new Schema({
         },
         designatedDisableParking() {
             let designatedDisableParkingNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.designatedDisableParking === true) {
                     designatedDisableParkingNum++;
                 }
@@ -60,7 +57,7 @@ const venueSchema = new Schema({
         },
         easyParkingNearby() {
             let easyParkingNearbyNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.easyParkingNearby === true) {
                     easyParkingNearbyNum++;
                 }
@@ -69,7 +66,7 @@ const venueSchema = new Schema({
         },
         hillsOnApproach() {
             let hillsOnApproachNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.hillsOnApproach === true) {
                     hillsOnApproachNum++;
                 }
@@ -78,7 +75,7 @@ const venueSchema = new Schema({
         },
         unevenPavementOnApproach() {
             let unevenPavementOnApproachNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.unevenPavementOnApproach === true) {
                     unevenPavementOnApproachNum++;
                 }
@@ -87,7 +84,7 @@ const venueSchema = new Schema({
         },
         veganFriendly() {
             let veganFriendlyNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.veganFriendly === true) {
                     veganFriendlyNum++;
                 }
@@ -96,7 +93,7 @@ const venueSchema = new Schema({
         },
         glutenFree() {
             let glutenFreeNum = 0;
-            this.reviews.forEach(function (review) {
+            this.reviews.forEach(function(review) {
                 if (review.glutenFree === true) {
                     glutenFreeNum++;
                 }
@@ -105,10 +102,5 @@ const venueSchema = new Schema({
         }
     }
 });
-
-
-
-   // image: {type: String},
-   // cloudinary_id: {type: String},
 
 module.exports = mongoose.model('Venue', venueSchema);

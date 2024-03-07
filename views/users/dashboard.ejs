@@ -20,42 +20,39 @@
           <a href="/venues"><li class="second">Venues and Reviews</li></a>
           <a href="/venues/new"><li class="third">Add Venue</li></a>
           <a href="/logout"><li class="fourth">Log Out</li></a>
-          <% } else { %>
+        <% } else { %>
           <a href="/auth/google"><li class="first">Log in or Join the team</li></a>
           <a href="/venues"><li class="second">Venues and Reviews</li></a>
-            <% } %>
+        <% } %>
       </ul>
     </div>
   
     <div class="col-6">
-      <h2>Your Reviews</h2>
       <% if (reviewShow.length) { %>
-            <% reviewShow.forEach(function(r) { %>
-              <div class="showReviwForm">  
-              
-                <h5><%= r.venueName %></h5>
-                <p>Wheel chair adopted: <%= r.wheelChairAdopted %></p>
-                <p>Wheel chair friendly: <%= r.wheelChairFriendly %></p>
-                <p>Desisgnated disable parking: <%= r.designatedDisableParking %></p>
-                <p>Easy parking nearby: <%= r.easyParkingNearby %></p>
-                <p>Hills on approach: <%= r.hillsOnApproach %></p>
-                <p>Uneven ground on approach: <%= r.unevenPavementOnApproach %></p>
-                <p>Vegan friendly options: <%= r.veganFriendly %></p>
-                <p>Gluten free options: <%= r.glutenFree %></p>
-                <p>Comments: <%= r.comment %></p>
-                <p>
-                  <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete</button>
-                  </form>    
-                
-                  <a href="/users/<%= r._id %>/edit">
-                    <button type="submit">Edit</button>
-                  </a>
-                
-              </div>
-            <% }) %>
-          
-      <% }; %>
+        <h3 class="title">Your Reviews</h3>
+        <% reviewShow.forEach(function(r) { %>
+          <div class="showReviwForm">  
+            <h3><%= r.venueName %></h3>
+            <p>Wheel chair adopted: <i><%= r.wheelChairAdopted %></i></p>
+            <p>Wheel chair friendly: <i><%= r.wheelChairFriendly %></i></p>
+            <p>Designated disable parking: <i><%= r.designatedDisableParking %></i></p>
+            <p>Easy parking nearby: <i><%= r.easyParkingNearby %></i></p>
+            <p>Hills on approach: <i><%= r.hillsOnApproach %></i></p>
+            <p>Uneven ground on approach: <i><%= r.unevenPavementOnApproach %></i></p>
+            <p>Vegan friendly options: <i><%= r.veganFriendly %></i></p>
+            <p>Gluten free options: <i><%= r.glutenFree %></i></p>
+            <p>Comments: <i><%= r.comment %></i></p>
+            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+              <button class="dashboardButton" type="submit">Delete</button>
+            </form>    
+            <a href="/users/<%= r._id %>/edit">
+              <button class="dashboardButton" type="submit">Edit</button>
+            </a>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>You have no reviews. Head to the Venues and Reviews page to add one</p>
+      <% } %>
     </div>
   </div>
 </body>

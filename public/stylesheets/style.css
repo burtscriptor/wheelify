@@ -11,6 +11,8 @@
   color: lightblue;
 }
 
+
+
 a {
   text-decoration: none;
   color: black;
@@ -199,23 +201,60 @@ border: 0.1rem solid black;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.showReviewForm {
-  display: flex;
-  padding-left: 10rem;
-
-
+.showReviewForm > p {
+  color:red;
+  
 }
 
 #new-venue {
   display:flex;
   padding: 1rem;
-  justify-content: space-around;
+  justify-content: wrap;
   color:red ;
 }
 
 .about {
+  margin-top: -1rem;
   display:flex;
-  
-  justify-content: center;
-  color:red ;
+  justify-content: space-between;
+  color:grey ;
 }
+
+.dashboardButton{
+  display:flex;
+  float:right;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 7px 24px;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: lightsalmon;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+}
+
+.addReviewButton {
+  display:flex;
+  float:center;
+  
+  border-radius: 10px;
+  padding: 7px 24px;
+  width: 100%;
+ 
+  justify-content: center;
+  align-items: center;
+  background-color: lightsalmon;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+}
+
+.addReviewButton:hover {
+  border: 0.1rem solid black;
+
+}
+
+.textarea {
+  width:100%;
+}
+

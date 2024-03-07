@@ -1,9 +1,11 @@
 const Venue = require('../models/venue');
-//const cloudinary = require('../utilies/cloudinary');
 
 const index = async (request, respond) => {
+   
     const venues = await Venue.find({});
+   
     console.log("this is ", venues);
+   
     respond.render('venues/index', { title: 'Venues', venues: venues });
 }
 
@@ -17,7 +19,9 @@ const show = async (request, respond) => {
 }
 
 const newVenue = (request, respond) => {
+    
     respond.render('venues/new', { title: 'Add Venue'});
+
 }
 
 const create = async(request, respond) => {
