@@ -19,13 +19,13 @@
     <div class="col-3 menu">
       <ul>
         <% if (user) { %>
-          <li classs="first"><a href="/users/dashboard">Dashboard</a></li>
-          <li class="second"><a href="/venues">Venues and Reviews</a></li>
-          <li class="third"><a href="/venues/new">Add Venue</a></li>
-          <li class="fourth"><a href="/logout">Log Out</a></li>
+          <a href="/users/dashboard"><li classs="first">Dashboard</li></a>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
+          <a href="/venues/new"><li class="third">Add Venue</li></a>
+          <a href="/logout"><li class="fourth">Log Out</li></a>
         <% } else { %>
-          <li class="first"><a href="/auth/google">Log in or Join the team</a></li>
-          <li class="second"><a href="/venues">Venues and Reviews</a></li>
+          <a href="/auth/google"><li class="first">Log in or Join the team</li></a>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
         <% } %>
       </ul>
     </div>
@@ -47,7 +47,7 @@
     </div>
   </div>
   <div class="footer">
-    <p>Contact us: inclusiveDine@gmail.com</p>
+    <h3>Contact us: inclusiveDine@gmail.com</h3>
   </div>
 </body>
 </html>
