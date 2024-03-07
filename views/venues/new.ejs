@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <a href='/'>Home Page</a>
   </head>
   <body>
-    <<h1 class="title"><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <section>
+      <div class="header">
+        <% if(user) { %>
+          <h1 class="title"><%= title %></h1>
+          <p>Hey <%= user.name %></p>
+          <img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
+       <% } else { %>
+        <h1 class="title"><%= title %></h1>
+        <% } %> 
+      </div>
+      
+      <div class="row">
+        <div class="col-3 menu">
+          <ul>
+            <a href="/"><li class="first">Home</li></a>
+          <% if (user) { %>
+          <a href="/users/dashboard"><li class="fifth">Dashboard</li></a>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
+          <a href="/venues/new"><li class="third">Add Venue</li></a>
+          <a href="/logout"><li class="fourth">Log Out</li></a>
+          <% } else { %>
+          <a href="/auth/google"><li class="first">Log in or Join the team</li></a>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
+            <% } %>
+            
+          </ul>
+        </div>
       <form id="new-venue" action="/venues" method="post">
-          <label>Venue Name</label>
+          <label>Venue Name:</label>
           <input type="text" name="name" type="required"><br>
-          <label>Address</label>
+          <label>Address:</label>
           <input type="text" name="address"><br>
           <button type="submit">Add</button>
 

@@ -26,20 +26,27 @@ const edit = async (request, respond) => {
 
 const update = async(request, respond) => {
     console.log('this is reqpID from update', request.params)
+    console.log('this is reqpbody from update', request.body)
     
 
-    const reviewUpdate = await Venue.updateOne(
+    const venue = await Venue.findOne(
         { 'reviews._id': request.params.id },
-        { $set: request.body }
+        
     );
+    const reviewIndex = venue.reviews.findIndex(r => r._id.equals(request.params.id))
+    venue.reviews.splice(reviewIndex, 1)
+    const newReview = {}
+    for(let key in request.body) {
+        newReview[key]=!!request.body[key];
+    }
+    newReview.comment = request.body.comment;
+    newReview.venueName = request.body.venueName;
+    newReview.user = request.user;
+    venue.reviews.push(newReview);
+    await venue.save();
+
     
-    //const reviewUpdate = await Venue.findByIdAndUpdate( $in [request.params.id] , request.body );
-    //const reviewUpdate = await Venue.findByIdAndUpdate({ 'reviews._id': { $in: [request.params.id] }}, request.body );
-    //await reviewUpdate.(request.body);
-    //const reviewUpdate = await Venue.findById({'reviews._id':request.params.id });
-    
-    console.log('this is reviewUpate from update=', reviewUpdate)
-    respond.redirect('users/dashboard');
+    respond.redirect('/users/dashboard');
 }
 module.exports = {
     index,

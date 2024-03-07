@@ -6,38 +6,30 @@
   <body>
       <div class="header">
         <h1 class="title"><%= title %></h1>
-        <p>Welcome <%= user.name %></p>
-        <table class="table">
-            <thead>
-              <tr>
-                <th>Wheelchair adpoted?</th>
-                <th>Wheelchair friendly?</th>
-                <th>Designated disable parking?</th>
-                <th>Easy parking nearby? </th>
-                <th>Hills on approach?</th>
-                <th>Uneven pavement on approach?</th>
-                <th>Vegan friendly options?</th>
-                <th>Gluten free options?</th>
-                <th>Comments</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tr>
-            <p>Welcome <%= singleReview[0]._id %></p>
-              <td><%= singleReview[0].wheelChairAdpoted %></td>
-              <td><%= singleReview[0].wheelChairFriendly %></td>
-              <td><%= singleReview[0].designatedDisableParking %></td>
-              <td><%= singleReview[0].easyParkingNearby %></td>
-              <td><%= singleReview[0].hillsOnApproach %></td>
-              <td><%= singleReview[0].unevenPavementOnApproach %></td>
-              <td><%= singleReview[0].vegenFriendly %></td>
-              <td><%= singleReview[0].GlutenFree %></td>
-              <td><%= singleReview[0].comment %></td>
-            </tr>
-            <label for="checkbox" id="addReview">Add a review</label>
-            <input type="checkbox" id="checkbox" />
-                <div id="reviewForm">
+        <p>For <%= singleReview[0].venueName %></p>
+        <img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
+        
+        <div class="row">
+            <div class="col-3 menu">
+              <ul>
+             
+              <% if (user) { %>
+              <a href="/users/dashboard"><li class=" first">Dashboard</li></a>
+              <a href="/venues"><li class="second">Venues and Reviews</li></a>
+              <a href="/venues/new"><li class="fourth">Add Venue</li></a>
+              <a href="/logout"><li class="fifth">Log Out</li></a>
+              <% } else { %>
+              <a href="/auth/google"><li class="first">Log in or Join the team</li></a>
+              <a href="/venues"><li class="second">Venues and Reviews</li></a>
+                <% } %>
+                
+              </ul>
+            </div>
+        
+            
+            
+            
+                <div id="reviewFormEdit">
                   <form id="edit" action="?_method=PUT" method="POST">
                     
                       <input type="hidden" name="venueName" value="<%= singleReview[0].venueName %>">
@@ -67,26 +59,16 @@
                       <label for="glutenFree">Gluten free options?</label><br>
 
                       <label for="comment">Share any other feedback?</label><br>
-                      <input type="text" id="comment" class="addReview" name="comment">
-                      <button type="submit">Add</button>
+                      <input type="textarea" id="comment" class="addReview" name="comment">
+                      <button class="addReview" type="submit">Add</button>
 
                     
                 </form>
                 </div>
       
-        <div class="col-3 right">
-          <div class="aside">
-            <h2>FAQ</h2>
-            <h2>What do we mean by mobility assistance?</h2>
-            <p>Generally speaking..</p>
-            <h2>Why this is important?</h2>
-            <p>Creating an inclusive society is not only good for individuals well being but also for econimic growthh and resilence</p>
-          </div>
-        </div>
+        
       </div>
-      <div class="footer">
-        <p>Contact us: inclusiveDine@gmail.com</p>
-      </div>
+    
       
   </body>
 </html>

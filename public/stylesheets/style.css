@@ -3,6 +3,10 @@
   
 }
 
+.footer {
+  position: relative;
+}
+
 .title {
   color: lightblue;
 }
@@ -57,6 +61,21 @@ html {
   background-color: limegreen;
 }
 
+.menu .second:hover {
+  background-color: orange;
+}
+
+.menu .third:hover {
+  background-color: blueviolet;
+}
+
+.menu .fourth:hover {
+  background-color: lightcoral;
+}
+
+.menu .fifth:hover {
+  background-color: lightseagreen;
+}
 .menu li:hover {
   background-color: #0099cc;
   
@@ -74,7 +93,7 @@ html {
 }
 
 .aside:hover {
-background-color: #0099cc;
+background-color:limegreen;
 }
 
 .footer {
@@ -88,22 +107,27 @@ background-color: #0099cc;
 
 .footer:hover {
   background-color: purple ;
-  ;
+  text-decoration: underline;
   
 }
 
-#addReview {
+.addReview {
   border-radius: 10px;
   padding: 7px;
-  justify-content: center;
-  align-items: center;
+  
   background-color: orange;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border: 0.1rem solid black;
 }
 
-#addReview:hover{
+.addReview > button {
+  height: 100px;
+}
+
+.addReview:hover{
 border: 0.1rem solid black;
 }
+
 
 #showReview {
   border-radius: 10px;
@@ -118,7 +142,7 @@ border: 0.1rem solid black;
 border: 0.1rem solid black;
 }
 
-/* For desktop: */
+
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -144,7 +168,7 @@ border: 0.1rem solid black;
   padding-top: 2vh;
 }
 
-#new-review > button{
+#new-review >button{
   border-radius: 10px;
   padding: 7px;
   justify-content: center;
@@ -175,10 +199,23 @@ border: 0.1rem solid black;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-#showReviewForm {
-  display:none;
-  padding-top: 2vh;
+.showReviewForm {
+  display: flex;
+  padding-left: 10rem;
+
+
 }
-#checkboxDash:checked + #showReviewForm{
-  display:block;
+
+#new-venue {
+  display:flex;
+  padding: 1rem;
+  justify-content: space-around;
+  color:red ;
+}
+
+.about {
+  display:flex;
+  
+  justify-content: center;
+  color:red ;
 }

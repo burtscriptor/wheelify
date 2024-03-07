@@ -9,13 +9,21 @@
   <div class="header">
     <h1 class="title"><%= title %></h1>
     <p>Welcome <%= user.name %></p>
+    <img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
   </div>
   
   <div class="row">
     <div class="col-3 menu">
       <ul>
         <a href="/"><li class="first">Home</li></a>
-        <a href="/venues/new"><li>Add Venue</li></a>
+        <% if (user) { %>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
+          <a href="/venues/new"><li class="third">Add Venue</li></a>
+          <a href="/logout"><li class="fourth">Log Out</li></a>
+          <% } else { %>
+          <a href="/auth/google"><li class="first">Log in or Join the team</li></a>
+          <a href="/venues"><li class="second">Venues and Reviews</li></a>
+            <% } %>
       </ul>
     </div>
   
@@ -23,17 +31,17 @@
       <h2>Your Reviews</h2>
       <% if (reviewShow.length) { %>
             <% reviewShow.forEach(function(r) { %>
-              <label for="checkbox" id="showReview">Venue Name: <%= r.venueName %></label>
-              <input type="checkbox" id="checkboxDash" />
-                <form id="showReviwForm">
-                <p>Wheel chair adopted: <%= r.wheelChairAdpoted %></p>
+              <div class="showReviwForm">  
+              
+                <h5><%= r.venueName %></h5>
+                <p>Wheel chair adopted: <%= r.wheelChairAdopted %></p>
                 <p>Wheel chair friendly: <%= r.wheelChairFriendly %></p>
                 <p>Desisgnated disable parking: <%= r.designatedDisableParking %></p>
                 <p>Easy parking nearby: <%= r.easyParkingNearby %></p>
                 <p>Hills on approach: <%= r.hillsOnApproach %></p>
                 <p>Uneven ground on approach: <%= r.unevenPavementOnApproach %></p>
                 <p>Vegan friendly options: <%= r.veganFriendly %></p>
-                <p>Gluten free options: <%= r.GlutenFree %></p>
+                <p>Gluten free options: <%= r.glutenFree %></p>
                 <p>Comments: <%= r.comment %></p>
                 <p>
                   <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
@@ -43,7 +51,8 @@
                   <a href="/users/<%= r._id %>/edit">
                     <button type="submit">Edit</button>
                   </a>
-                </form>
+                
+              </div>
             <% }) %>
           
       <% }; %>

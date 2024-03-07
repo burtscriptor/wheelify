@@ -27,7 +27,7 @@ const venue = await Venue.findById(request.params.id);
     console.log(err);
   }
   // Step 5:  Respond to the Request (redirect if data has been changed)
-  respond.redirect('/');
+  respond.redirect('/venues');
 }
 
 // }
