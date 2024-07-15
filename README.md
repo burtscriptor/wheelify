@@ -1,8 +1,9 @@
 Hey - Welcome to InclusiveDine 
 =============
 
-Access the app here - [InclusiveDine](https://inclusive-dine-30e4e63a5918.herokuapp.com/)
+Access to - [InclusiveDine](https://inclusive-dine-30e4e63a5918.herokuapp.com/)
 
+** This application is currently going through a revamp to improve the style and user experience. ** 15 July
 
 Developed as a user-centric CRUD application using Express and Mongoose as the backend, InclusiveDine was created to allow authenticated users to add reviews of venues, chiefly restaurants. The review theme centers around how accessible a venue is to people that require mobility assistance, such as those with wheelchairs. This RESTful API is designed and styled to work across desktops, tablets, and mobile devices.
 
