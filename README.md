@@ -1,4 +1,4 @@
-Hey - Welcome to InclusiveDine 
+Welcome to InclusiveDine 
 =============
 
 Access to - [InclusiveDine](https://inclusive-dine-30e4e63a5918.herokuapp.com/)
